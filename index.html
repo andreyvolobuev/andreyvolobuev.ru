@@ -22,7 +22,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: #ffffff;
+    background: #faf9f5;
     color: var(--black);
     font-family: var(--sans);
     font-size: 17px;
@@ -61,7 +61,30 @@
 
   /* ── текст ── */
 
-  p { margin-bottom: 22px; }
+  p { margin-bottom: 22px; position: relative; }
+
+  /* серая приписка с датами слева от абзаца */
+  .when {
+    position: absolute;
+    top: 0;
+    right: calc(100% + 32px);
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 28px; /* выравнивание по первой строке абзаца */
+    color: #a8a8a8;
+  }
+
+  /* на узком экране дата встаёт под абзацем, по правому краю */
+  @media (max-width: 1080px) {
+    .when {
+      top: 100%;
+      right: 0;
+      line-height: 1.4;
+      margin-top: 3px;
+    }
+
+    p:has(.when) { margin-bottom: 46px; }
+  }
 
   a {
     color: var(--black);
@@ -116,17 +139,17 @@
   
   <p>Я умею создавать команды для разработки ПО любой сложности и для решения любых задач в&nbsp;адекватный прогнозируемый срок и&nbsp;с&nbsp;реалистичным бюджетом, а&nbsp;так&nbsp;же умею потом этими командами управлять, чтобы заказчик получил ровно то, что хотел, за&nbsp;те деньги, которые рассчитывал заплатить и&nbsp;в&nbsp;тот срок, который ожидал.</p>
   
-  <p>Сейчас я делаю это в&nbsp;команде Добычи&nbsp;данных в&nbsp;<a href="https://2gis.ru/">2ГИС</a>.</p>
+  <p><span class="when">с сентября 2025</span>Сейчас я делаю это в&nbsp;команде Добычи&nbsp;данных в&nbsp;<a href="https://2gis.ru/">2ГИС</a>.</p>
 
-  <p>До&nbsp;этого, я делал тоже самое в&nbsp; кластере&nbsp;Стройка компании&nbsp;<a href="https://samolet.ru/">Самолет</a>.</p>
+  <p><span class="when">с октября 2022 по август 2025</span>До&nbsp;этого, я делал тоже самое в&nbsp; кластере&nbsp;Стройка компании&nbsp;<a href="https://samolet.ru/">Самолет</a>.</p>
 
-  <p>А&nbsp;перед этим в&nbsp; команде&nbsp;Chemistry42 стартапа <a href="https://insilico.com/">Insilico Medicine</a>.</p>
+  <p><span class="when">с февраля 2020 по сентябрь 2022</span>А&nbsp;перед этим в&nbsp; команде&nbsp;Chemistry42 стартапа <a href="https://insilico.com/">Insilico Medicine</a>.</p>
 
-  <p>Мне так&nbsp;же удалось работать программистом в&nbsp;маркетплейсе японской&nbsp;техники <a href="https://privezite.com/">privezite.com</a>.</p>
+  <p><span class="when">с августа 2018 по декабрь 2021</span>Мне так&nbsp;же удалось работать программистом в&nbsp;маркетплейсе японской&nbsp;техники <a href="https://privezite.com/">privezite.com</a>.</p>
 
   <p>Код, который я писал, можно посмотреть на&nbsp;моем <a href="https://github.com/andreyvolobuev">гитхабе</a>.</p>
 
-  <p>В&nbsp;2012 году я открыл магазин фотоаппаратов во&nbsp;Владивостоке A&amp;A&nbsp;PHOTO, а&nbsp;в&nbsp;2016 открыл магазин крутой стильной посуды Soul&nbsp;Kitchen. В&nbsp;начале 2022 году оба этих бизнеса пришлось, к&nbsp;сожалению, закрыть.</p>
+  <p><span class="when">с октября 2016 по февраль 2022</span>В&nbsp;2012 году я открыл магазин фотоаппаратов во&nbsp;Владивостоке A&amp;A&nbsp;PHOTO, а&nbsp;в&nbsp;2016 открыл магазин крутой стильной посуды Soul&nbsp;Kitchen. В&nbsp;начале 2022 году оба этих бизнеса пришлось, к&nbsp;сожалению, закрыть.</p>
 
   <div class="photo">
     <img src="photos/cape.jpg" alt="Мыс Доброй Надежды">
@@ -138,7 +161,7 @@
     <img src="photos/safari.jpg" alt="На сафари" loading="lazy">
   </div>
 
-  <p>В&nbsp;доковидные времена я снимал видео из&nbsp;путешествий и&nbsp;выкладывал их на&nbsp;ютуб. Самые интересные, из&nbsp;тех, что точно стоит посмотреть: про&nbsp;<a href="https://www.youtube.com/watch?v=tlAWN_85aW0">Фарерские острова</a>, про&nbsp;<a href="https://www.youtube.com/watch?v=bs8SBjQ8IR4">Норвегию</a>, про&nbsp;<a href="https://www.youtube.com/watch?v=14DXi37RG6E">Северную Корею</a> и&nbsp;про то, как мы с&nbsp;женой ели хаукарль в&nbsp;<a href="https://www.youtube.com/watch?v=ANT1hvHsRzM">Исландии</a>.</p>
+  <p>В&nbsp;доковидные времена я снимал видео из&nbsp;путешествий и&nbsp;выкладывал их на&nbsp;ютуб. Самые интересные, из&nbsp;тех, что точно стоит посмотреть: про&nbsp;<a href="https://www.youtube.com/watch?v=tlAWN_85aW0">Фарерские острова</a>, про подъем на Язык Тролля в&nbsp;<a href="https://www.youtube.com/watch?v=bs8SBjQ8IR4">Норвегии</a>, про&nbsp;<a href="https://www.youtube.com/watch?v=14DXi37RG6E">Северную Корею</a> и&nbsp;про то, как мы с&nbsp;женой ели хаукарль в&nbsp;<a href="https://www.youtube.com/watch?v=ANT1hvHsRzM">Исландии</a>.</p>
 
   <div class="photo">
     <img src="photos/camps-bay.jpg" alt="Кэмпс-Бэй, Кейптаун" loading="lazy">
@@ -146,7 +169,7 @@
 
   <p>Одно время у меня был&nbsp;<a href="https://www.instagram.com/volobuev1">был довольно популярный инстаграм</a>, который я благополучно забросил, так как надоело, а&nbsp;я в&nbsp;жизни делаю только то, что мне нравится.</p>
 
-  <p>Сейчас я каждый день пишу интересные заметки обо всем, что меня интересует, в&nbsp;свой <a href="https://t.me/volobuev">телеграм канал</a> (заходите, читайте, подписывайтесь, пишите комменты).</p>
+  <p><span class="when">с октября 2016 по февраль 2022</span>Сейчас я каждый день пишу интересные заметки обо всем, что меня интересует, в&nbsp;свой <a href="https://t.me/volobuev">телеграм канал</a> (заходите, читайте, подписывайтесь, пишите комменты).</p>
 
   <p class="contact">Если вам кажется, что мы можем быть друг другу полезны и поработать вместе, то&nbsp;пишите&nbsp;сюда:&nbsp;<a href="mailto:andrey@andreyvolobuev.ru">andrey@andreyvolobuev.ru</a></p>
 
