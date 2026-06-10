@@ -1,0 +1,46 @@
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: avvolob/homepage:latest
+          context: .
+          file: ./Dockerfile
+
+      - name: Setup kubeconfig
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBECONFIG }}" | base64 -d > ~/.kube/config
+          chmod 600 ~/.kube/config
+
+      # Deployment "homepage" описан в Helm-чарте aerolist
+      # (infra/helm/aerolist/templates/homepage.yaml). Здесь только
+      # перезапускаем его, чтобы под подтянул свежий :latest.
+      - name: Restart homepage deployment
+        run: |
+          if kubectl get deployment homepage -n aerolist >/dev/null 2>&1; then
+            kubectl rollout restart deployment/homepage -n aerolist
+            kubectl rollout status deployment/homepage -n aerolist --timeout=120s
+          else
+            echo "::warning::deployment/homepage ещё не создан — задеплойте чарт aerolist (push тега v*), образ уже в Docker Hub"
+          fi
