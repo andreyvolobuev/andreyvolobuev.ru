@@ -1,30 +1,152 @@
-<html>
-    <head>
-        <title>Андрей Волобуев.html</title>
-    </head>
-    <body>
-        <div style="margin:2%">
-            <h1>&lt;h1&gt;Првиет, я Андрей&lt;/br&gt;&lt;/h1&gt;<br></h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Андрей Волобуев</title>
+<meta name="description" content="Андрей Волобуев: программист, менеджер, предприниматель, блогер, путешественник">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111111;
+    --grey: #767676;
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans: 'Golos Text', -apple-system, sans-serif;
+  }
 
-            &lt;img src="<img src="face.png" align="top">" align="top"&gt;
-            <p>&lt;p&gt;Я умею писать программы на разных языках программирования: 
-                C, Pyhton, Go, Brainfuck и даже чуть-чуть на HTML.&lt;/p&gt;</p>
-            <p>&lt;p&gt;Так же владею навыками уверенного пользователя ПК: 
-                Windows XP, MS Word, Excel, PowerPoint, Outlook.&lt;/br&gt;<br>
-            Печатаю текст со скоростьб 220 символов/мин. (это быстро).&lt;/br&gt;<br>
-            Несколько написанных мной компьютерных прогнграмм доступны по данномуу адрессу 
-            в международной компьютерной сети интернет: 
-            <a href="https://github.com/andreyvolobuev">https://github.com/andreyvolobuev</a>&lt;/p&gt;</p>
-            <p>Я много путешествую и специально для таких же как я создал веб-страничку: 
-                <a href="https://aerolist.ru/">http://aerolist.ru/</a>&lt;/br&gt;</p>
-            <p>Вы можете познакомиться со мной поближе в социальной сети 
-                <a href="https://instagram.com/volobuev1">InstaGram</a> 
-                <font color="red">(пренаджелит Meta и заплренещена в России)&lt;/br&gt;</font></p>
-            <p>Предложения о сотрудничестве присылайте на мой E-Mail: 
-                <a href="mailto:andrey@andreyvolobuev.ru">andrey@andreyvolobuev.ru</a>&lt;/br&gt;</p>
-            <p>Донаты в биткоинах можно присылать на этот кошелек: 
-                &lt;b&gt;<b>12r3GowCsyxSmC47kahLdYu9SDhSWLUiEh</b>&lt;/b&gt;</p>
-            <p><font size="6"><b>&lt;/bodi&gt; &lt;/html&gt;</b></font></p>
-        </div>
-    </body>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #ffffff;
+    color: var(--black);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 96px 24px 96px;
+    animation: rise .8s ease both;
+  }
+
+  /* ── портрет: в колонке слева от текста ── */
+
+  .portrait {
+    position: absolute;
+    top: 104px;
+    left: -136px;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* когда слева нет места — портрет встаёт над текстом */
+  @media (max-width: 1080px) {
+    .portrait {
+      position: static;
+      margin-bottom: 48px;
+    }
+  }
+
+  /* ── текст ── */
+
+  p { margin-bottom: 22px; }
+
+  a {
+    color: var(--black);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: #bbbbbb;
+    transition: text-decoration-color .2s ease;
+  }
+
+  a:hover { text-decoration-color: var(--black); }
+
+  /* ── фотографии ── */
+
+  .photo {
+    margin: 52px 0;
+  }
+
+  .photo img {
+    width: 100%;
+    display: block;
+    background: #f4f4f4;
+  }
+
+  /* ── контакт ── */
+
+  .contact {
+    margin-top: 72px;
+    margin-bottom: 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.45;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <img class="portrait" src="photos/portrait.jpg" alt="Андрей Волобуев">
+
+  <p>Меня зовут Андрей Волобуев. Я программист, менеджер, предприниматель, блогер и&nbsp;путешественник.</p>
+
+  <p>Я умею создавать команды разработки для решения любой задачи в&nbsp;адекватный прогнозируемый срок и&nbsp;с&nbsp;реалистичным бюджетом, а&nbsp;так&nbsp;же умею потом эти команды контролировать, чтобы заказчик получил ровно то, что заказывал, за&nbsp;те деньги, которые рассчитывал заплатить и&nbsp;в&nbsp;тот срок, который ожидал.</p>
+
+  <p>Сейчас я делаю это в&nbsp;команде Добычи Данных в&nbsp;<a href="https://2gis.ru/">2ГИС</a>.</p>
+
+  <p>До&nbsp;этого, я делал тоже самое в&nbsp;компании <a href="https://samolet.ru/">Самолет</a>.</p>
+
+  <p>А&nbsp;перед этим в&nbsp;стартапе <a href="https://insilico.com/">Insilico Medicine</a>.</p>
+
+  <p>Мне так&nbsp;же удалось работать программистом в&nbsp;маркетплейсе японской техники <a href="https://privezite.com/">privezite.com</a>.</p>
+
+  <p>Код, который я писал, можно посмотреть на&nbsp;моем <a href="https://github.com/andreyvolobuev">гитхабе</a>.</p>
+
+  <p>В&nbsp;2012 году я открыл магазин фотоаппаратов во&nbsp;Владивостоке A&amp;A&nbsp;PHOTO, а&nbsp;в&nbsp;2016 открыл магазин крутой стильной посуды Soul&nbsp;Kitchen. В&nbsp;начале 2022 году оба этих бизнеса пришлось, к&nbsp;сожалению, закрыть.</p>
+
+  <div class="photo">
+    <img src="photos/cape.jpg" alt="Мыс Доброй Надежды">
+  </div>
+
+  <p>Еще я довольно много путешествую и&nbsp;на&nbsp;данный момент успел посетить 68&nbsp;стран и&nbsp;178&nbsp;городов. Все мои поездки (по&nbsp;годам, по&nbsp;городам, по&nbsp;странам, или стрелочками на&nbsp;карте) можно посмотреть на&nbsp;<a href="https://aerolist.ru/andrey">aerolist.ru/andrey</a>. Это, кстати, тоже мой проект — заходите, регистрируйтесь, добавляйте свои поездки, будем соревноваться&nbsp;:)</p>
+
+  <div class="photo">
+    <img src="photos/safari.jpg" alt="На сафари" loading="lazy">
+  </div>
+
+  <p>В&nbsp;доковидные времена я снимал видео из&nbsp;путешествий и&nbsp;выкладывал их на&nbsp;ютуб. Самые интересные, из&nbsp;тех, что точно стоит посмотреть: про&nbsp;<a href="https://www.youtube.com/watch?v=tlAWN_85aW0">Фарерские острова</a>, про&nbsp;<a href="https://www.youtube.com/watch?v=bs8SBjQ8IR4">Норвегию</a>, про&nbsp;<a href="https://www.youtube.com/watch?v=14DXi37RG6E">Северную Корею</a> и&nbsp;про то, как мы с&nbsp;женой ели хаукарль в&nbsp;<a href="https://www.youtube.com/watch?v=ANT1hvHsRzM">Исландии</a>.</p>
+
+  <div class="photo">
+    <img src="photos/camps-bay.jpg" alt="Кэмпс-Бэй, Кейптаун" loading="lazy">
+  </div>
+
+  <p>Одно время у меня был&nbsp;<a href="https://www.instagram.com/volobuev1">был довольно популярный инстаграм</a>, который я благополучно забросил, так как надоело, а&nbsp;я в&nbsp;жизни делаю только то, что мне нравится.</p>
+
+  <p>Сейчас я каждый день пишу интересные заметки обо всем, что меня интересует, в&nbsp;свой <a href="https://t.me/volobuev">телеграм канал</a> (заходите, читайте, подписывайтесь, пишите комменты).</p>
+
+  <p class="contact">Если вам нужно что-то из&nbsp;того, что я умею, то&nbsp;пишите сюда: <a href="mailto:andrey@andreyvolobuev.ru">andrey@andreyvolobuev.ru</a></p>
+
+</div>
+</body>
 </html>
