@@ -1,4 +1,5 @@
 FROM nginx:1.27-alpine
 
-COPY index.html /usr/share/nginx/html/index.html
-COPY photos/ /usr/share/nginx/html/photos/
+# Копируем весь репозиторий: новые ассеты (фавиконки и т.п.) попадают
+# в образ автоматически. Служебные файлы исключены в .dockerignore.
+COPY . /usr/share/nginx/html/
